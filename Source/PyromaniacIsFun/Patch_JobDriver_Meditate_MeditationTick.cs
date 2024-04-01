@@ -4,8 +4,7 @@ using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(JobDriver_Meditate))]
-[HarmonyPatch("MeditationTick")]
+[HarmonyPatch(typeof(JobDriver_Meditate), "MeditationTick")]
 public static class Patch_JobDriver_Meditate_MeditationTick
 {
     public static void Postfix(JobDriver_Meditate __instance)

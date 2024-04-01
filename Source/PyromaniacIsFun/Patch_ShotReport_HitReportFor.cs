@@ -1,4 +1,3 @@
-using System;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -6,13 +5,11 @@ using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(ShotReport))]
-[HarmonyPatch(nameof(ShotReport.HitReportFor))]
+[HarmonyPatch(typeof(ShotReport), nameof(ShotReport.HitReportFor))]
 public static class Patch_ShotReport_HitReportFor
 {
     public static readonly FieldInfo ShotReport_forcedMissRadius =
-        typeof(ShotReport).GetField("forcedMissRadius", BindingFlags.Instance | BindingFlags.NonPublic) ??
-        throw new ArgumentException("ShotReport.forcedMissRadius is not found");
+        AccessTools.Field(typeof(ShotReport), "forcedMissRadius");
 
     public static void Postfix(ref ShotReport __result, Thing caster, Verb verb)
     {

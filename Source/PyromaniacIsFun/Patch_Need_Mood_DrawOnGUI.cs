@@ -1,18 +1,15 @@
-﻿using System.Reflection;
-using HarmonyLib;
+﻿using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(Need_Mood))]
-[HarmonyPatch(nameof(Need_Mood.DrawOnGUI))]
+[HarmonyPatch(typeof(Need_Mood), nameof(Need_Mood.DrawOnGUI))]
 public static class Patch_Need_Mood_DrawOnGUI
 {
-    public static readonly float BarInstantMarkerSize = (float)typeof(Need)
-        .GetField("BarInstantMarkerSize", BindingFlags.Static | BindingFlags.NonPublic)
-        ?.GetValue(null)!;
+    public static readonly float BarInstantMarkerSize =
+        (float)AccessTools.Field(typeof(Need), "BarInstantMarkerSize").GetValue(null);
 
     public static void DrawPyromaniaIndicator(Rect barRect, float pct)
     {

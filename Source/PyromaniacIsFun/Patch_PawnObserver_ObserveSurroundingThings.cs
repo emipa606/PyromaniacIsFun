@@ -1,6 +1,5 @@
 #nullable enable
 
-using System;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -8,13 +7,11 @@ using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(PawnObserver))]
-[HarmonyPatch("ObserveSurroundingThings")]
+[HarmonyPatch(typeof(PawnObserver), "ObserveSurroundingThings")]
 public static class Patch_PawnObserver_ObserveSurroundingThings
 {
     public static readonly MethodInfo PawnObserver_PossibleToObserve =
-        typeof(PawnObserver).GetMethod("PossibleToObserve", BindingFlags.Instance | BindingFlags.NonPublic) ??
-        throw new ArgumentException("PawnObserver.PossibleToObserve is not found");
+        AccessTools.Method(typeof(PawnObserver), "PossibleToObserve");
 
     public static void TryCreateObservedThought(Thing thing, Pawn pawn)
     {
@@ -51,7 +48,7 @@ public static class Patch_PawnObserver_ObserveSurroundingThings
             {
                 foreach (var item in reg.ListerThings.ThingsInGroup(ThingRequestGroup.Fire))
                 {
-                    if ((bool)PawnObserver_PossibleToObserve.Invoke(__instance, new object[] { item }))
+                    if ((bool)PawnObserver_PossibleToObserve.Invoke(__instance, [item]))
                     {
                         TryCreateObservedThought(item, pawn);
                     }

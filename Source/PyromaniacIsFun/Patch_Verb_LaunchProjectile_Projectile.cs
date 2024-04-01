@@ -38,7 +38,7 @@ public static class Patch_Verb_LaunchProjectile_Projectile
 
     [HarmonyPostfix]
     [HarmonyPatch(nameof(Verb_LaunchProjectile.Projectile), MethodType.Getter)]
-    public static void Postfix_Projectile(Verb_LaunchProjectile __instance, ref ThingDef __result)
+    public static void Postfix_Projectile(ref ThingDef __result)
     {
         // Patch arrows in all `.Projectile` access in `.TryCastShot`.
         // In vanilla only the first one is needed, but the sequence might change due to mod.

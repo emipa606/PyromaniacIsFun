@@ -1,14 +1,12 @@
 #nullable enable
 
-using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(DefGenerator))]
-[HarmonyPatch(nameof(DefGenerator.GenerateImpliedDefs_PreResolve))]
+[HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PreResolve))]
 public static class Patch_DefGeneratorGenerateImpliedDefs_PreResolve
 {
     public static ThingDef GenerateFireArrow(ThingDef arrow, ThingDef fireArrowGeneric)
@@ -20,7 +18,7 @@ public static class Patch_DefGeneratorGenerateImpliedDefs_PreResolve
         // Make a copy in order to modify
         // TODO: Any better to clone?
         fireArrow.projectile = Gen.MemberwiseClone(arrow.projectile);
-        fireArrow.projectile.extraDamages = new List<ExtraDamage>();
+        fireArrow.projectile.extraDamages = [];
         if (arrow.projectile.extraDamages is not null)
         {
             fireArrow.projectile.extraDamages.AddRange(arrow.projectile.extraDamages);

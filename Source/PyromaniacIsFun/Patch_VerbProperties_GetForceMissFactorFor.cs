@@ -6,8 +6,7 @@ using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(VerbProperties))]
-[HarmonyPatch(nameof(VerbProperties.GetForceMissFactorFor))]
+[HarmonyPatch(typeof(VerbProperties), nameof(VerbProperties.GetForceMissFactorFor))]
 public static class Patch_VerbProperties_GetForceMissFactorFor
 {
     public static void Postfix(VerbProperties __instance, Thing equipment, Pawn caster, ref float __result)

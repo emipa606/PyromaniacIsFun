@@ -5,8 +5,7 @@ using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(VerbUtility))]
-[HarmonyPatch(nameof(VerbUtility.FinalSelectionWeight))]
+[HarmonyPatch(typeof(VerbUtility), nameof(VerbUtility.FinalSelectionWeight))]
 public static class Patch_VerbUtility_FinalSelectionWeight
 {
     public static void Postfix(Verb verb, Pawn p, ref float __result)

@@ -4,11 +4,10 @@ using Verse;
 
 namespace CF_PyromaniacIsFun;
 
-[HarmonyPatch(typeof(Pawn_NeedsTracker))]
-[HarmonyPatch("ShouldHaveNeed")]
+[HarmonyPatch(typeof(Pawn_NeedsTracker), "ShouldHaveNeed")]
 public static class Patch_Pawn_NeedsTracker_ShouldHaveNeed
 {
-    public static void Postfix(Pawn_NeedsTracker __instance, NeedDef nd, ref bool __result, Pawn ___pawn)
+    public static void Postfix(NeedDef nd, ref bool __result, Pawn ___pawn)
     {
         if (!__result || nd != PyromaniacUtility.NeedPyromaniaDef)
         {

@@ -1,7 +1,6 @@
 #nullable enable
 
 using System;
-using System.Collections.Generic;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -28,13 +27,13 @@ public class NeedPyromania : Need
     public NeedPyromania(Pawn pawn) : base(pawn)
     {
         // See `Need_Beauty`
-        threshPercents = new List<float>
-        {
+        threshPercents =
+        [
             ThresholdVeryLow,
             ThresholdLow,
             ThresholdSatisfied,
             ThresholdHigh
-        };
+        ];
     }
 
     // See `Need_Joy`
