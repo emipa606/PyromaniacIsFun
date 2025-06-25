@@ -5,7 +5,7 @@ using Verse;
 namespace CF_PyromaniacIsFun;
 
 [HarmonyPatch(typeof(Pawn_NeedsTracker), "ShouldHaveNeed")]
-public static class Patch_Pawn_NeedsTracker_ShouldHaveNeed
+public static class Pawn_NeedsTracker_ShouldHaveNeed
 {
     public static void Postfix(NeedDef nd, ref bool __result, Pawn ___pawn)
     {

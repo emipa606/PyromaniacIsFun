@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <NeedDef>
     <defName>CF_PyromaniacIsFun_NeedPyromania</defName>
@@ -96,43 +96,43 @@
     <defName>CF_PyromaniacIsFun_Maneuver_Ignite</defName>
     <rulePack>
       <rulesStrings>
-        <li>damaged_inf-&gt;blast</li>
-        <li>damaged_inf-&gt;scorch</li>
-        <li>damaged_inf-&gt;burn</li>
-        <li>damaged_inf-&gt;blister</li>
-        <li>damaged_inf-&gt;ignit</li>
-        <li>damaged_inf-&gt;sear</li>
-        <li>damaged_past-&gt;blasted</li>
-        <li>damaged_past-&gt;scorched</li>
-        <li>damaged_past-&gt;burned</li>
-        <li>damaged_past-&gt;blistered</li>
-        <li>damaged_past-&gt;ignited</li>
-        <li>damaged_past-&gt;seared</li>
-        <li>damaged_present-&gt;blasting</li>
-        <li>damaged_present-&gt;scorching</li>
-        <li>damaged_present-&gt;burning</li>
-        <li>damaged_present-&gt;blistering</li>
-        <li>damaged_present-&gt;igniting</li>
-        <li>damaged_present-&gt;searing</li>
-        <li>destroyed_past-&gt;cremated</li>
-        <li>destroyed_past-&gt;incinerated</li>
-        <li>destroyed_past-&gt;charred</li>
-        <li>destroyed_past-&gt;obliterated</li>
-        <li>destroyed_past-&gt;annihilated</li>
-        <li>destroyed_past-&gt;detonated</li>
-        <li>destroyed_present-&gt;cremating</li>
-        <li>destroyed_present-&gt;incinerating</li>
-        <li>destroyed_present-&gt;charring</li>
-        <li>destroyed_present-&gt;obliterating</li>
-        <li>destroyed_present-&gt;annihilating</li>
-        <li>destroyed_present-&gt;detonating</li>
-        <li>flavortext_consequence(recipient_flesh!=Mechanoid)-&gt;exposing the bone underneath</li>
-        <li>flavortext_consequence(recipient_flesh==Mechanoid)-&gt;exposing the machinery underneath</li>
-        <li>flavortext_consequence(recipient_flesh!=Mechanoid)-&gt;leaving a burn scar</li>
-        <li>flavortext_consequence(recipient_flesh==Mechanoid)-&gt;leaving a burnt surface on the metal</li>
-        <li>destroyed_suffix-&gt;[to] ashes</li>
-        <li>destroyed_suffix-&gt;[to] a cinder</li>
-        <li>destroyed_suffix(recipient_flesh!=Mechanoid)-&gt;[to] an unrecognizable mess</li>
+        <li>damaged_inf->blast</li>
+        <li>damaged_inf->scorch</li>
+        <li>damaged_inf->burn</li>
+        <li>damaged_inf->blister</li>
+        <li>damaged_inf->ignit</li>
+        <li>damaged_inf->sear</li>
+        <li>damaged_past->blasted</li>
+        <li>damaged_past->scorched</li>
+        <li>damaged_past->burned</li>
+        <li>damaged_past->blistered</li>
+        <li>damaged_past->ignited</li>
+        <li>damaged_past->seared</li>
+        <li>damaged_present->blasting</li>
+        <li>damaged_present->scorching</li>
+        <li>damaged_present->burning</li>
+        <li>damaged_present->blistering</li>
+        <li>damaged_present->igniting</li>
+        <li>damaged_present->searing</li>
+        <li>destroyed_past->cremated</li>
+        <li>destroyed_past->incinerated</li>
+        <li>destroyed_past->charred</li>
+        <li>destroyed_past->obliterated</li>
+        <li>destroyed_past->annihilated</li>
+        <li>destroyed_past->detonated</li>
+        <li>destroyed_present->cremating</li>
+        <li>destroyed_present->incinerating</li>
+        <li>destroyed_present->charring</li>
+        <li>destroyed_present->obliterating</li>
+        <li>destroyed_present->annihilating</li>
+        <li>destroyed_present->detonating</li>
+        <li>flavortext_consequence(recipient_flesh!=Mechanoid)->exposing the bone underneath</li>
+        <li>flavortext_consequence(recipient_flesh==Mechanoid)->exposing the machinery underneath</li>
+        <li>flavortext_consequence(recipient_flesh!=Mechanoid)->leaving a burn scar</li>
+        <li>flavortext_consequence(recipient_flesh==Mechanoid)->leaving a burnt surface on the metal</li>
+        <li>destroyed_suffix->[to] ashes</li>
+        <li>destroyed_suffix->[to] a cinder</li>
+        <li>destroyed_suffix(recipient_flesh!=Mechanoid)->[to] an unrecognizable mess</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

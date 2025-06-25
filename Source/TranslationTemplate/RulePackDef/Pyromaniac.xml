@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN:
+    <li>damaged_inf->blast</li>
+    <li>damaged_inf->scorch</li>
+    <li>damaged_inf->burn</li>
+    <li>damaged_inf->blister</li>
+    <li>damaged_inf->ignit</li>
+    <li>damaged_inf->sear</li>
+    <li>damaged_past->blasted</li>
+    <li>damaged_past->scorched</li>
+    <li>damaged_past->burned</li>
+    <li>damaged_past->blistered</li>
+    <li>damaged_past->ignited</li>
+    <li>damaged_past->seared</li>
+    <li>damaged_present->blasting</li>
+    <li>damaged_present->scorching</li>
+    <li>damaged_present->burning</li>
+    <li>damaged_present->blistering</li>
+    <li>damaged_present->igniting</li>
+    <li>damaged_present->searing</li>
+    <li>destroyed_past->cremated</li>
+    <li>destroyed_past->incinerated</li>
+    <li>destroyed_past->charred</li>
+    <li>destroyed_past->obliterated</li>
+    <li>destroyed_past->annihilated</li>
+    <li>destroyed_past->detonated</li>
+    <li>destroyed_present->cremating</li>
+    <li>destroyed_present->incinerating</li>
+    <li>destroyed_present->charring</li>
+    <li>destroyed_present->obliterating</li>
+    <li>destroyed_present->annihilating</li>
+    <li>destroyed_present->detonating</li>
+    <li>flavortext_consequence(recipient_flesh!=Mechanoid)->exposing the bone underneath</li>
+    <li>flavortext_consequence(recipient_flesh==Mechanoid)->exposing the machinery underneath</li>
+    <li>flavortext_consequence(recipient_flesh!=Mechanoid)->leaving a burn scar</li>
+    <li>flavortext_consequence(recipient_flesh==Mechanoid)->leaving a burnt surface on the metal</li>
+    <li>destroyed_suffix->[to] ashes</li>
+    <li>destroyed_suffix->[to] a cinder</li>
+    <li>destroyed_suffix(recipient_flesh!=Mechanoid)->[to] an unrecognizable mess</li>
+  -->
+  <CF_PyromaniacIsFun_Maneuver_Ignite.rulePack.rulesStrings>
+    <li>damaged_inf->blast</li>
+    <li>damaged_inf->scorch</li>
+    <li>damaged_inf->burn</li>
+    <li>damaged_inf->blister</li>
+    <li>damaged_inf->ignit</li>
+    <li>damaged_inf->sear</li>
+    <li>damaged_past->blasted</li>
+    <li>damaged_past->scorched</li>
+    <li>damaged_past->burned</li>
+    <li>damaged_past->blistered</li>
+    <li>damaged_past->ignited</li>
+    <li>damaged_past->seared</li>
+    <li>damaged_present->blasting</li>
+    <li>damaged_present->scorching</li>
+    <li>damaged_present->burning</li>
+    <li>damaged_present->blistering</li>
+    <li>damaged_present->igniting</li>
+    <li>damaged_present->searing</li>
+    <li>destroyed_past->cremated</li>
+    <li>destroyed_past->incinerated</li>
+    <li>destroyed_past->charred</li>
+    <li>destroyed_past->obliterated</li>
+    <li>destroyed_past->annihilated</li>
+    <li>destroyed_past->detonated</li>
+    <li>destroyed_present->cremating</li>
+    <li>destroyed_present->incinerating</li>
+    <li>destroyed_present->charring</li>
+    <li>destroyed_present->obliterating</li>
+    <li>destroyed_present->annihilating</li>
+    <li>destroyed_present->detonating</li>
+    <li>flavortext_consequence(recipient_flesh!=Mechanoid)->exposing the bone underneath</li>
+    <li>flavortext_consequence(recipient_flesh==Mechanoid)->exposing the machinery underneath</li>
+    <li>flavortext_consequence(recipient_flesh!=Mechanoid)->leaving a burn scar</li>
+    <li>flavortext_consequence(recipient_flesh==Mechanoid)->leaving a burnt surface on the metal</li>
+    <li>destroyed_suffix->[to] ashes</li>
+    <li>destroyed_suffix->[to] a cinder</li>
+    <li>destroyed_suffix(recipient_flesh!=Mechanoid)->[to] an unrecognizable mess</li>
+  </CF_PyromaniacIsFun_Maneuver_Ignite.rulePack.rulesStrings>
+</LanguageData>

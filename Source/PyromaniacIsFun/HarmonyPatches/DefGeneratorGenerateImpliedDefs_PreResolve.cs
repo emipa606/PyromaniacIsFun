@@ -7,9 +7,9 @@ using Verse;
 namespace CF_PyromaniacIsFun;
 
 [HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PreResolve))]
-public static class Patch_DefGeneratorGenerateImpliedDefs_PreResolve
+public static class DefGeneratorGenerateImpliedDefs_PreResolve
 {
-    public static ThingDef GenerateFireArrow(ThingDef arrow, ThingDef fireArrowGeneric)
+    private static ThingDef generateFireArrow(ThingDef arrow, ThingDef fireArrowGeneric)
     {
         var fireArrow = Gen.MemberwiseClone(arrow);
         fireArrow.defName = "Fire_" + arrow.defName;
@@ -42,7 +42,7 @@ public static class Patch_DefGeneratorGenerateImpliedDefs_PreResolve
                 continue;
             }
 
-            var fireArrow = GenerateFireArrow(t, PyromaniacUtility.FireArrowGenericDef);
+            var fireArrow = generateFireArrow(t, PyromaniacUtility.FireArrowGenericDef);
             PyromaniacUtility.ArrowDict.Add(t, fireArrow);
         }
 

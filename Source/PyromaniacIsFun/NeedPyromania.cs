@@ -1,5 +1,4 @@
 #nullable enable
-
 using System;
 using System.Text;
 using RimWorld;
@@ -10,19 +9,19 @@ namespace CF_PyromaniacIsFun;
 
 public class NeedPyromania : Need
 {
-    public const float ThresholdVeryLow = 0.1f;
-    public const float ThresholdLow = 0.3f;
-    public const float ThresholdSatisfied = 0.6f;
-    public const float ThresholdHigh = 0.8f;
-    public string ExplanationAll = "";
-    public string? ExplanationFromAdjustExternally;
-    public string ExplanationFromObservedFire = "";
+    private const float ThresholdVeryLow = 0.1f;
+    private const float ThresholdLow = 0.3f;
+    private const float ThresholdSatisfied = 0.6f;
+    private const float ThresholdHigh = 0.8f;
+    private string ExplanationAll = "";
+    private string? ExplanationFromAdjustExternally;
+    private string ExplanationFromObservedFire = "";
     private float lastAdjustExternallyAmount;
     private int lastAdjustExternallyTick = -999;
 
     // End of see `Need_joy`
 
-    public float lastDelta;
+    private float lastDelta;
 
     public NeedPyromania(Pawn pawn) : base(pawn)
     {
@@ -37,7 +36,7 @@ public class NeedPyromania : Need
     }
 
     // See `Need_Joy`
-    public bool IsAdjustExternally => Find.TickManager.TicksGame < lastAdjustExternallyTick + 10;
+    private bool IsAdjustExternally => Find.TickManager.TicksGame < lastAdjustExternallyTick + 10;
 
     public override int GUIChangeArrow =>
         IsFrozen ? 0 : IsAdjustExternally ? Math.Sign(lastAdjustExternallyAmount) : Math.Sign(lastDelta);
@@ -67,7 +66,7 @@ public class NeedPyromania : Need
         return text + "\n\n" + ExplanationAll;
     }
 
-    public void CheckSelfOnFire()
+    private void CheckSelfOnFire()
     {
         if (!pawn.HasAttachment(ThingDefOf.Fire))
         {
@@ -79,7 +78,7 @@ public class NeedPyromania : Need
         pawn.needs.mood.thoughts.memories.TryGainMemory(thought);
     }
 
-    public float GainFromObservedFireInterval()
+    private float gainFromObservedFireInterval()
     {
         CheckSelfOnFire();
         var numWildFire = 0;
@@ -163,7 +162,7 @@ public class NeedPyromania : Need
         sb.AppendLine(
             "CF_PyromaniacIsFun_NeedPyromania.BaseChangeRate".Translate((def.fallPerDay * 100).ToString("F0")));
         var gain = -def.fallPerDay;
-        var gainFromObservedFireInterval = GainFromObservedFireInterval();
+        var gainFromObservedFireInterval = this.gainFromObservedFireInterval();
         if (gainFromObservedFireInterval > 0)
         {
             gain += gainFromObservedFireInterval;

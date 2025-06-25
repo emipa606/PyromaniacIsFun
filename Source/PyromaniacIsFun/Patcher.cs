@@ -7,7 +7,7 @@ namespace CF_PyromaniacIsFun;
 
 public class Patcher : Mod
 {
-    public static Settings Settings = new Settings();
+    public static Settings Settings = new();
     private static string currentVersion;
     private string meleeIgniteChanceBuffer;
     private string needPyromaniaGainFromMeditationMultiplierBuffer;
@@ -21,7 +21,7 @@ public class Patcher : Mod
     {
         Settings = GetSettings<Settings>();
         currentVersion = VersionFromManifest.GetVersionFromModMetaData(pack.ModMetaData);
-        DoPatching();
+        new Harmony("com.colinfang.PyromaniacIsFun").PatchAll();
     }
 
     public override string SettingsCategory()
@@ -89,12 +89,6 @@ public class Patcher : Mod
 
         list.End();
         base.DoSettingsWindowContents(inRect);
-    }
-
-    public void DoPatching()
-    {
-        var harmony = new Harmony("com.colinfang.PyromaniacIsFun");
-        harmony.PatchAll();
     }
 }
 

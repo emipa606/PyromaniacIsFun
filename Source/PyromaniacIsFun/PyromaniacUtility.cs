@@ -26,15 +26,15 @@ public static class PyromaniacUtility
     public static readonly MentalStateDef FireStartingSpreeDef =
         DefDatabase<MentalStateDef>.GetNamed("FireStartingSpree");
 
-    public static readonly Dictionary<ThingDef, ThingDef> ArrowDict = new Dictionary<ThingDef, ThingDef>();
-    public static bool IsDebug;
+    public static readonly Dictionary<ThingDef, ThingDef> ArrowDict = new();
+    private static bool isDebug;
 
     [DebugAction("PyromaniacIsFun", actionType = DebugActionType.Action,
         allowedGameStates = AllowedGameStates.PlayingOnMap)]
     public static void ToggleDebug()
     {
-        IsDebug = !IsDebug;
-        Log.Message($"Debug is {IsDebug}");
+        isDebug = !isDebug;
+        Log.Message($"Debug is {isDebug}");
     }
 
     [DebugAction("PyromaniacIsFun", actionType = DebugActionType.ToolMapForPawns,
@@ -48,11 +48,7 @@ public static class PyromaniacUtility
 
         foreach (var thought in handler.Memories)
         {
-            if (thought.def == ObservedWildFireDef)
-            {
-                Log.Message($"{thought}");
-            }
-            else if (thought.def == ObservedBurningPawnDef)
+            if (thought.def == ObservedWildFireDef || thought.def == ObservedBurningPawnDef)
             {
                 Log.Message($"{thought}");
             }
@@ -147,7 +143,7 @@ public static class PyromaniacUtility
 
     public static void ThrowText(Thing thing, Func<string> GetText, float timeBeforeStartFadeout)
     {
-        if (IsDebug)
+        if (isDebug)
         {
             MoteMaker.ThrowText(thing.DrawPos, thing.Map, GetText(), timeBeforeStartFadeout);
         }

@@ -8,12 +8,12 @@ using Verse;
 namespace CF_PyromaniacIsFun;
 
 [HarmonyPatch(typeof(PawnObserver), "ObserveSurroundingThings")]
-public static class Patch_PawnObserver_ObserveSurroundingThings
+public static class PawnObserver_ObserveSurroundingThings
 {
-    public static readonly MethodInfo PawnObserver_PossibleToObserve =
+    private static readonly MethodInfo pawnObserverPossibleToObserve =
         AccessTools.Method(typeof(PawnObserver), "PossibleToObserve");
 
-    public static void TryCreateObservedThought(Thing thing, Pawn pawn)
+    private static void tryCreateObservedThought(Thing thing, Pawn pawn)
     {
         if (thing is not Fire fire)
         {
@@ -48,9 +48,9 @@ public static class Patch_PawnObserver_ObserveSurroundingThings
             {
                 foreach (var item in reg.ListerThings.ThingsInGroup(ThingRequestGroup.Fire))
                 {
-                    if ((bool)PawnObserver_PossibleToObserve.Invoke(__instance, [item]))
+                    if ((bool)pawnObserverPossibleToObserve.Invoke(__instance, [item]))
                     {
-                        TryCreateObservedThought(item, pawn);
+                        tryCreateObservedThought(item, pawn);
                     }
                 }
 

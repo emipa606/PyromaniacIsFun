@@ -6,16 +6,16 @@ using Verse;
 namespace CF_PyromaniacIsFun;
 
 [HarmonyPatch(typeof(Need_Mood), nameof(Need_Mood.DrawOnGUI))]
-public static class Patch_Need_Mood_DrawOnGUI
+public static class Need_Mood_DrawOnGUI
 {
-    public static readonly float BarInstantMarkerSize =
+    private static readonly float barInstantMarkerSize =
         (float)AccessTools.Field(typeof(Need), "BarInstantMarkerSize").GetValue(null);
 
-    public static void DrawPyromaniaIndicator(Rect barRect, float pct)
+    private static void drawPyromaniaIndicator(Rect barRect, float pct)
     {
         // See `Need.DrawBarInstantMarkerAt`
         // TODO: Which const is 150f?
-        var markerSize = BarInstantMarkerSize;
+        var markerSize = barInstantMarkerSize;
         if (barRect.width < 150f)
         {
             markerSize /= 2f;
@@ -36,11 +36,11 @@ public static class Patch_Need_Mood_DrawOnGUI
         var threshold = need.GetMentalBreakProtectThreshold();
 
         // rect3 is derived from the original function
-        var maxDrawHeight = Need.MaxDrawHeight;
-        if (rect.height > maxDrawHeight)
+        const float drawHeight = Need.MaxDrawHeight;
+        if (rect.height > drawHeight)
         {
-            var num = (rect.height - maxDrawHeight) / 2f;
-            rect.height = maxDrawHeight;
+            var num = (rect.height - drawHeight) / 2f;
+            rect.height = drawHeight;
             rect.y += num;
         }
 
@@ -55,6 +55,6 @@ public static class Patch_Need_Mood_DrawOnGUI
         var rect3 = new Rect(rect.x, rect.y + (rect.height / 2f), rect.width, rect.height / 2f);
         rect3 = new Rect(rect3.x + num3, rect3.y, rect3.width - (num3 * 2f), rect3.height - num2);
 
-        DrawPyromaniaIndicator(rect3, threshold);
+        drawPyromaniaIndicator(rect3, threshold);
     }
 }

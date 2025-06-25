@@ -5,7 +5,7 @@ using Verse.AI;
 namespace CF_PyromaniacIsFun;
 
 [HarmonyPatch(typeof(MentalStateWorker), nameof(MentalStateWorker.StateCanOccur))]
-public static class Patch_MentalStateWorker_StateCanOccur
+public static class MentalStateWorker_StateCanOccur
 {
     public static void Postfix(MentalStateWorker __instance, Pawn pawn, ref bool __result)
     {
