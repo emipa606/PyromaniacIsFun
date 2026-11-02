@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Reflection;
+using HarmonyLib;
 using Mlie;
 using UnityEngine;
 using Verse;
@@ -21,7 +22,7 @@ public class Patcher : Mod
     {
         Settings = GetSettings<Settings>();
         currentVersion = VersionFromManifest.GetVersionFromModMetaData(pack.ModMetaData);
-        new Harmony("com.colinfang.PyromaniacIsFun").PatchAll();
+        new Harmony("com.colinfang.PyromaniacIsFun").PatchAll(Assembly.GetExecutingAssembly());
     }
 
     public override string SettingsCategory()

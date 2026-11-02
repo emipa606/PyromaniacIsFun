@@ -16,7 +16,6 @@ public class ThoughtWorker_PyromaniacHappy : ThoughtWorker
 
         if (Patcher.Settings.HappyWhenCarryingTrulyIncendiaryWeapon)
         {
-            // TODO: This is the standard way to get verbs from an equipment
             foreach (var verb in p.equipment.Primary.GetComp<CompEquippable>().AllVerbs)
             {
                 // If it is loadable (only mortar in vanilla), get the loaded projectile
@@ -28,14 +27,8 @@ public class ThoughtWorker_PyromaniacHappy : ThoughtWorker
         }
         else
         {
-            // Original
-            foreach (var verb in p.equipment.Primary.GetComp<CompEquippable>().AllVerbs)
-            {
-                if (verb.IsIncendiary_Melee() || verb.IsIncendiary_Ranged())
-                {
-                    return true;
-                }
-            }
+            return p.equipment.Primary.GetComp<CompEquippable>().AllVerbs
+                .Any(verb => verb.IsIncendiary_Melee() || verb.IsIncendiary_Ranged());
         }
 
         return false;

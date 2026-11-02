@@ -9,12 +9,11 @@ namespace CF_PyromaniacIsFun;
 public static class Need_Mood_DrawOnGUI
 {
     private static readonly float barInstantMarkerSize =
-        (float)AccessTools.Field(typeof(Need), "BarInstantMarkerSize").GetValue(null);
+        (float)(AccessTools.Field(typeof(Need), "BarInstantMarkerSize").GetValue(null) ?? 150f);
 
     private static void drawPyromaniaIndicator(Rect barRect, float pct)
     {
         // See `Need.DrawBarInstantMarkerAt`
-        // TODO: Which const is 150f?
         var markerSize = barInstantMarkerSize;
         if (barRect.width < 150f)
         {
@@ -44,7 +43,6 @@ public static class Need_Mood_DrawOnGUI
             rect.y += num;
         }
 
-        // TODO: Which const is 14f, 15f, 50f?
         var num2 = 14f;
         var num3 = customMargin >= 0f ? customMargin : num2 + 15f;
         if (rect.height < 50f)

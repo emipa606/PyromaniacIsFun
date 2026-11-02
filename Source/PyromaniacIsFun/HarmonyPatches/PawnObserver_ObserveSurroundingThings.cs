@@ -48,7 +48,7 @@ public static class PawnObserver_ObserveSurroundingThings
             {
                 foreach (var item in reg.ListerThings.ThingsInGroup(ThingRequestGroup.Fire))
                 {
-                    if ((bool)pawnObserverPossibleToObserve.Invoke(__instance, [item]))
+                    if ((bool)(pawnObserverPossibleToObserve.Invoke(__instance, [item]) ?? false))
                     {
                         tryCreateObservedThought(item, pawn);
                     }

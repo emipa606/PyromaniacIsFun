@@ -38,8 +38,18 @@ public class NeedPyromania : Need
     // See `Need_Joy`
     private bool IsAdjustExternally => Find.TickManager.TicksGame < lastAdjustExternallyTick + 10;
 
-    public override int GUIChangeArrow =>
-        IsFrozen ? 0 : IsAdjustExternally ? Math.Sign(lastAdjustExternallyAmount) : Math.Sign(lastDelta);
+    public override int GUIChangeArrow
+    {
+        get
+        {
+            if (IsFrozen)
+            {
+                return 0;
+            }
+
+            return IsAdjustExternally ? Math.Sign(lastAdjustExternallyAmount) : Math.Sign(lastDelta);
+        }
+    }
 
     public PyromaniaCategory CurCategory => CurLevel switch
     {

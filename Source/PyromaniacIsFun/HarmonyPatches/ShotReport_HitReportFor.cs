@@ -20,7 +20,6 @@ public static class ShotReport_HitReportFor
             return;
         }
 
-        // TODO: This involves copy, not ideal
         object r = __result;
         shotReportForcedMissRadius.SetValue(r, 0);
         __result = (ShotReport)r;
